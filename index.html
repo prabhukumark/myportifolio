@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - B.Tech CSE Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <style>
+      
+        body {
+            background-color: #f7fafc; 
+            font-family: 'Inter', sans-serif;
+        }
+
+       
+        .navbar {
+            background-color: #1a202c; 
+            padding: 1rem;
+            position: fixed; 
+            top: 0;
+            width: 100%;
+            z-index: 1000; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #edf2f7; 
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #63b3ed; 
+        }
+
+        
+        header {
+            background-color: #1a202c; 
+            color: white;
+            padding: 5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .header-content {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+        .header-image-container {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+            padding-right: 17%;
+        }
+
+        .header-image {
+            width: 50%; 
+            border-radius: 50%;
+            border: 5px solid white; 
+            box-shadow: 0 0 20px 10px rgba(66, 153, 225, 0.5); 
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+        }
+
+      
+        section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+        }
+
+        section img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+    
+        #about {
+            background-color: #1a202c; 
+            color: white;
+            width: 100%; 
+            padding: 2rem;
+            position: relative; 
+        }
+
+        #about .content {
+            max-width: 800px; 
+            margin: 0 auto; 
+            text-align: center;
+        }
+
+        #about a {
+            background-color: #4299e1; 
+            color: white;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: background-color 0.3s;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none; 
+        }
+
+        #about a:hover {
+            background-color: #63b3ed; 
+        }
+
+        
+        #about::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 5px solid #4299e1; 
+            border-radius: 0.5rem;
+            z-index: -1; 
+            box-shadow: 0 0 20px rgba(66, 153, 225, 0.5); 
+        }
+
+      
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skills-grid div {
+            background-color: #cbd5e0; 
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            border-radius: 0.25rem;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .skills-grid div:hover {
+            background-color: #1a202c;
+            color: wheat;
+            transform: translateY(-5px); 
+            box-shadow: 0 0 20px rgba(66, 153, 225, 0.5); 
+        }
+        #projects {
+    border: 5px solid #4299e1; 
+    box-shadow: 0 0 20px rgba(66, 153, 225, 0.5);
+}
+
+
+        .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.projects-grid div {
+    background-color: #edf2f7; 
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.projects-grid div:hover {
+    background-color: #1a202c;
+    color: #cbd5e0;
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(66, 153, 225, 0.5); 
+}
+
+.projects-grid div::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid #3182ce; 
+    border-radius: 0.5rem;
+    z-index: -1;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.projects-grid div:hover::before {
+    opacity: 1;
+}
+
+
+   
+        #contact form div {
+            margin-bottom: 1rem;
+        }
+
+        #contact label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+        .social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+    border-radius: 50%;
+    padding: 6px;
+    box-sizing: border-box;
+    text-decoration: none;
+    box-shadow: 0 10px 15px #3182ce;
+    background: linear-gradient(0deg,#ddd, #fff);
+    transition: .5s;
+}
+
+.social-icon:hover {
+    box-shadow: 0 2px 5px rgba(207, 1, 163, 0.3);
+}
+
+.social-icon i {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, #fff, #ddd);
+    border-radius: 50%;
+    font-size: 24px;
+    color: #262626;
+    transition: .5s;
+}
+
+.social-icon:nth-child(1):hover i {
+    color: #25D366;
+}
+
+.social-icon:nth-child(2):hover i {
+    color: #4078c0;
+}
+
+.social-icon:nth-child(3):hover i {
+    color: #dd4b39;
+}
+
+.social-icon:nth-child(4):hover i {
+    color: #007bb6;
+}
+
+.social-icon:nth-child(5):hover i {
+    color: #e4405f;
+}
+        #contact input,
+        #contact {
+        background-color: #1a202c; 
+        padding: 2rem;
+        border: 5px solid #4299e1; 
+        box-shadow: 0 0 20px rgba(66, 153, 225, 0.5); 
+        border-radius: 0.5rem;
+    }
+
+    .contact-form {
+        max-width: 600px; 
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem; 
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #cbd5e0; 
+        border-radius: 0.25rem;
+        background-color: #edf2f7; 
+       color: #3182ce; 
+        transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .input-field:focus {
+        outline: none; 
+        border-color: #4299e1; 
+        background-color: white; 
+        box-shadow: 0 0 10px rgba(66, 153, 225, 0.5); 
+    }
+
+    .input-field::placeholder {
+        color: #a0aec0; 
+    }
+
+    textarea.input-field {
+        height: 150px; 
+        resize: vertical; 
+    }
+
+    button {
+        background-color: #3182ce; 
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.25rem;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #63b3ed; 
+    }
+   
+        footer {
+            background-color: #1a202c; 
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal" style="background-color: #1a202c;">
+
+
+<nav class="navbar">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-2xl font-bold">......🅿️......</a>
+        <div>
+            <a href="#header" class="text-gray-200 mx-2">Home</a>
+            <a href="#about" class="text-gray-200 mx-2">About</a>
+            <a href="#skills" class="text-gray-200 mx-2">Skills</a>
+            <a href="#projects" class="text-gray-200 mx-2">Projects</a>
+            <a href="#contact" class="text-gray-200 mx-2">Contact</a>
+        </div>
+    </div>
+</nav>
+
+
+<header id="header" class="bg-dark-900 text-white flex justify-between items-center py-20">
+    <div class="header-content pl-10">
+        <br>
+        <br>
+        <br>        <h1 class="text-5xl font-bold">Hello! I'm </h1>
+        
+      <span id="name" style="color: #3182ce; font-size: larger; font-weight: bold;"></span>
+      <p>
+        From Algorithms to Web Interfaces: Mastering the Digital Craft</p>
+         <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1CG4CpO3s9mYLzQLf7S1n8jNqKtf9Jq2x/view?usp=sharing" class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 inline-block">Download CV</a>
+        </div>
+        <div class="flex mt-4">
+            <a href="https://www.linkedin.com/in/kondapalli-prabhu-kumar-724746284/" class="text-white mx-2"><img src="limkedin.png" alt="linkedin-icon" width="30"></a>
+            <a href="https://www.instagram.com/prabhu_kumar_82/" class="text-white mx-2"><img src="instagram.png" alt="instagram" width="30"></a>
+            <a href="https://wa.me/9391112410" class="text-white mx-2"><img src="whatsapp.png" alt="whatsapp" width="30"></a>
+            <a href="https://github.com/prabhukumark" class="text-white mx-2"><img src="github.jpg" alt="github" width="30"></a>
+        </div>
+    </div>
+    <div class="header-image-container pr-10">
+        <img src="prabhu123.jpg" alt="Mark Junior" class="header-image">
+    </div>
+</header>
+
+
+<section id="about" class="container mx-auto my-20 p-6 bg-dark-900 text-white shadow-lg">
+    <div class="flex items-center">
+        <div class="flex-1">
+            <img src="prabhu.jpg" alt="About Me Image" class="rounded-full w-3/4 mx-auto" style="height: fit-content; border-color: #4299e1; box-shadow: 0 0 10px rgba(66, 153, 225, 0.5); ">
+        </div>
+        <div class="flex-1 text-left pl-10">
+            <h2 class="text-3xl font-bold mb-4" style="color: #3182ce;">About Me</h2>
+            <p>I am a final-year Computer Science and Engineering student at Vellore Institute of Technology, Andhra Pradesh, specializing in Java programming and Data Structures and Algorithms. My proficiency extends to HTML, CSS, JavaScript, and MySQL, reflecting my strong interest in web development and user-centric design. Currently, I am gaining practical experience through a web development internship, where I apply and further develop my skills. I am eager to leverage my knowledge in innovative projects, demonstrating
+                 a commitment to continuous learning 
+                 and growth in the dynamic field of technology.</p>
+            <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 inline-block">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="container mx-auto my-20 p-6 bg-white shadow-lg" style="background-color: #1a202c; position: relative;">
+  
+    <div class="skills-border-and-shadow" style="position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px; border: 5px solid #4299e1; border-radius: 0.5rem; z-index: -1; box-shadow: 0 0 20px rgba(66, 153, 225, 0.5);"></div>
+    
+    <h2 class="text-3xl font-bold mb-4 text-center" style="color: #cbd5e0;">Skills</h2>
+    
+ 
+    <div>
+        <h3 class="text-2xl font-bold mb-4 text-center" style="color: #3182ce;">Technical Skills</h3>
+        <div class="skills-grid">
+            <div>
+                <img src="java.png" alt="Java">
+                <p class="mt-2">Java</p>
+                <p class="mt-1 text-sm text-gray-600">Advanced</p>
+            </div>
+            <div>
+                <img src="dsa.jpg" alt="Java Dsa">
+                <p class="mt-2">Java Dsa</p>
+                <p class="mt-2">Advanced</p>
+            </div>
+            <div>
+                <img src="mysql.png" alt="MySQL">
+                <p class="mt-2">MySQL</p>
+                <p class="mt-2">Basic</p>
+            </div>
+            <div>
+                <img src="php.png" alt="PHP">
+                <p class="mt-2">PHP</p>
+                <p class="mt-2">Basic</p>
+            </div>
+            <div>
+                <img src="html.png" alt="HTML/CSS">
+                <p class="mt-2">HTML/CSS</p>
+                <p class="mt-2">Intermediate</p>
+            </div>
+            <div>
+                <img src="js.png" alt="JavaScript">
+                <p class="mt-2">JavaScript</p>
+                <p class="mt-2">Basic</p>
+            </div>
+        </div>
+    </div>
+    
+  
+    <div class="mt-10">
+        <h3 class="text-2xl font-bold mb-4 text-center" style="color: #3182ce;">Soft Skills</h3>
+        <div class="skills-grid">
+            <div>
+                <img src="lbb.png" alt="Logic Building">
+                <p class="mt-2">Logic Building</p>
+                <p class="mt-2">Intermediate</p>
+            </div>
+            <div>
+                <img src="dt.png" alt="Design Thinking">
+                <p class="mt-2">Design Thinking</p>
+                <p class="mt-2">Advanced</p>
+            </div>
+            <div>
+                <img src="dem.webp" alt="Decision Making">
+                <p class="mt-2">Decision-Making</p>
+                <p class="mt-2">Basic</p>
+            </div>
+            <div>
+                <img src="ps.png" alt="Problem Solving">
+                <p class="mt-2">Problem Solving</p>
+                <p class="mt-2">Intermediate</p>
+            </div>
+            <div>
+                <img src="bbs.jpg" alt="Brainstorming">
+                <p class="mt-2">Brainstorming</p>
+                <p class="mt-2">Basic</p>
+            </div>
+            <div>
+                <img src="pe.png" alt="Patience">
+                <p class="mt-2">Patience</p>
+                <p class="mt-2">Intermediate</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="projects" class="container mx-auto my-20 p-6 bg-white shadow-lg rounded-lg" style="background-color: #1a202c;">
+    <h2 class="text-3xl font-bold mb-4 text-center" style="color: #3182ce;">Projects</h2>
+    <div class="projects-grid">
+        <div class="bg-gray-100 rounded-lg p-4 shadow-md relative overflow-hidden">
+            <img src="project1.png" alt="Project 1" class="mx-auto">
+            <h3 class="text-2xl font-bold mb-4 text-center" style="color: #3182ce;">Gym Studio</h3>
+            <p>
+                Developed a dynamic gym website with distinct interfaces for administrators, coaches, and students, enabling user registration, login, and personalized dashboards using HTML, CSS, JS and PHP. Features such as body detail tracking, exercise plans, dietary information, and class schedules.
+            </p>
+            <div class="absolute bottom-0 left-0 right-0 bg-blue-500 text-white py-2 text-center">
+                <a href="#" class="text-white" style="color: #3182ce;">Learn More</a>
+            </div>
+        </div>
+        <div class="bg-gray-100 rounded-lg p-4 shadow-md relative overflow-hidden">
+            <img src="project2.jpg" alt="Project 2" class="mx-auto">
+            <h3 class="text-2xl font-bold mb-4 text-center" style="color: #3182ce;">Student Management</h3>
+            <p>
+                A project for Java Full Stack Internship by IamNeo Company which helps in retrieving and adding data of students.
+            </p>
+            <div class="absolute bottom-0 left-0 right-0 bg-blue-500 text-white py-2 text-center">
+                <a href="#" class="text-white" style="color: #3182ce">Learn More</a>
+            </div>
+        </div>
+        <div class="bg-gray-100 rounded-lg p-4 shadow-md relative overflow-hidden">
+            <img src="project3.jpg" alt="Project 3" class="mx-auto">
+            <h3 class="text-2xl font-bold mb-4 text-center" style="color: #3182ce;">Advance Home Automation</h3>
+            <p>
+                It will help the owners by automatically turning on and off the lights, fans, and motor. Automatically rotated solar panel.
+            </p>
+            <div class="absolute bottom-0 left-0 right-0 bg-blue-500 text-white py-2 text-center">
+                <a href="#" class="text-white" style="color: #3182ce">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="social-media" class="container mx-auto my-20 p-6 bg-white shadow-lg" style="background-color: #1a202c;">
+    <h2 class="text-3xl font-bold mb-4 text-center" style="color: #3182ce;">Connect With Me</h2>
+    <div class="social-icons-container flex justify-center items-center">
+        <a href="https://wa.me/9391112410" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://github.com/prabhukumark" class="social-icon"><i class="fab fa-github"></i></a>
+        <a href="mailto:kprabhukumar594@gmail.com" class="social-icon"><i class="fab fa-google-plus-g"></i></a>
+        <a href="https://www.linkedin.com/in/kondapalli-prabhu-kumar-724746284/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/prabhu_kumar_82/" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </div>
+</section>
+
+
+<section id="contact" class="container mx-auto my-20 p-6 bg-white shadow-lg rounded-lg" style="background-color: #1a202c;">
+    <h2 class="text-3xl font-bold mb-4 text-center" style="color: #3182ce;">Contact Me</h2>
+    <form class="contact-form">
+        <div class="form-group">
+            <label for="name" class="text-white" style="color: #007bb6;">Name</label>
+            <input type="text" id="name" name="name" class="input-field" required>
+        </div>
+        <div class="form-group">
+            <label for="email" class="text-white" style="color: #007bb6;">Email</label>
+            <input type="email" id="email" name="email" class="input-field" required>
+        </div>
+        <div class="form-group">
+            <label for="message" class="text-white" style="color: #007bb6;">Message</label>
+            <textarea id="message" name="message" rows="5" class="input-field" required style="background-color: #1a202c; border-color: #4299e1; box-shadow: 0 0 20px rgba(66, 153, 225, 0.5);"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+    </form>
+</section>
+
+
+<footer class="bg-dark-900 text-white text-center py-4">
+    <p>&copy; 2024 @ Prabhu Kumar. All Rights Reserved.</p>
+</footer>
+<script>
+    function movePage(element, pageNumber) {
+        console.log('Moving to page ' + pageNumber);
+    }
+  
+    const nameElement = document.getElementById('name');
+    const text1 = 'prabhu kumar';
+    const text2 = 'software developer';
+    let textArray = [];
+    let index = 0;
+    let isAdding = true;
+    let isRemoving = false;
+    let intervalTime = 200;
+  
+    function updateText() {
+        nameElement.textContent = textArray.join('');
+    }
+  
+    function typeEffect(text) {
+        if (isAdding) {
+            if (index < text.length) {
+                textArray.push(text[index]);
+                index++;
+                updateText();
+            } else {
+                isAdding = false;
+                isRemoving = true;
+                setTimeout(() => typeEffect(text), 1000);  // Pause before starting to remove
+                return;
+            }
+        } else if (isRemoving) {
+            if (index > 0) {
+                textArray.pop();
+                index--;
+                updateText();
+            } else {
+                isRemoving = false;
+                isAdding = true;
+                textArray = [];
+                index = 0;
+                return;
+            }
+        }
+  
+        setTimeout(() => typeEffect(text), intervalTime);
+    }
+  
+    function startCycle() {
+        typeEffect(text1);
+        setTimeout(() => {
+            typeEffect(text2);
+            setTimeout(startCycle, text2.length * intervalTime * 2 + 2000);  // Adjust timing for pause between cycles
+        }, text1.length * intervalTime * 2 + 2000);
+    }
+  
+    startCycle();
+  </script>
+</body>
+</html>
